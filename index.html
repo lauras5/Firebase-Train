@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Unica+One" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Tracker</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="topPage" class="col-md">
+                <div class="jumbotron" id='jumbo'>
+                    <h1>In Transit</h1>
+                    <p> trains . simple . accurate . safe </p>
+                </div>
+                <img id='trainimage' src="assets/images/train.png" alt="train">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md" id="currentTrainTimes">
+                <span>current train times</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md" id="addNewTrain">
+<span>add new train</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form">
+                <div class="form-group">
+                    <input id='trainName' class="form-control form-control-lg" type="text" placeholder="Train Name">
+                    <input id='trainDest' class="form-control form-control-lg" type="text" placeholder="Destination">
+                    <input id='trainFreq' class="form-control form-control-lg" type="number" placeholder="Frequency">
+                    <input id='trainArrival' class="form-control form-control-lg" type="number" placeholder="First Arrival">
+                    <button type='submit' class="submit">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script src="assets/javascript/javascript.js"></script>
+
+</body>
+</html>

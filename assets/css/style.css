@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+}
+
+#trainimage {
+    height: 380px;
+    width: 640px;
+    position: relative;
+    top: -350px;
+    left: -286px;
+    margin: 0px;
+    z-index: 0;
+}
+
+#topPage {
+    height: 336px;
+    margin-top: 5%;
+}
+
+#jumbo {
+    background-image: url('../images/gradient.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+    border-radius: 0px;
+    border: 5px double black;
+    text-align: right;
+}
+
+.jumbotron h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Monoton', cursive;
+    font-size: 75px;
+}
+
+.jumbotron p {
+    position: relative;
+    z-index: 2;
+    font-family: 'Unica One', cursive;
+}
