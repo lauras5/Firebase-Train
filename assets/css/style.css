@@ -1,12 +1,13 @@
 body {
     text-align: center;
+    font-family: 'Unica One', cursive;
 }
 
 #trainimage {
     height: 380px;
-    width: 640px;
+    width: 734px;
     position: relative;
-    top: -350px;
+    top: -377px;
     left: -286px;
     margin: 0px;
     z-index: 0;
@@ -15,6 +16,7 @@ body {
 #topPage {
     height: 336px;
     margin-top: 5%;
+    margin-bottom: -40px;
 }
 
 #jumbo {
@@ -23,8 +25,8 @@ body {
     background-repeat: no-repeat;
     color:white;
     border-radius: 0px;
-    border: 5px double black;
     text-align: right;
+    /* border: 5px double black; */
 }
 
 .jumbotron h1 {
@@ -38,4 +40,29 @@ body {
     position: relative;
     z-index: 2;
     font-family: 'Unica One', cursive;
+}
+
+.card {
+    display: inline-block;
+    background-color: #9b7899;
+    width: 170px;
+    padding: 5px;
+    box-shadow: 3px 3px #003744;
+    margin: 10px;
+    height: 220px;
+}
+
+.card h3 {
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+}
+
+.card a {
+    text-decoration: none;
+    color: rgb(31, 31, 56);
+}
+
+#time {
+    position: relative;
+    z-index: 3;
 }

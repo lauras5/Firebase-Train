@@ -1,13 +1,18 @@
 $(document).ready(function() {
   var newTrain
-  var trainName
-  var trainDest
-  var trainFreq
-  var trainArrival
+  var tName
+  var tDestination
+  var tFrequency
+  var tArrival
   var nextArrival
   var minutesToTrain
-  var trainList
+  var tList
+  var tdeparture
+  var now = moment().format('MMMM Do YYYY, LT');
+  console.log(now)
+  $("#time").html(now)
 
+  
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDMzQJYRc3YYs8XXXzcff-8DVu8XKUpvl8",
@@ -22,35 +27,40 @@ $(document).ready(function() {
 
   //access to database
   var database =  firebase.database()
-  //acces to users
-  var users = database.ref('/users')
+  //acces to trains
+  var trains = database.ref('/trains')
   console.log('hello')
 
-  $(".submit").on("click", function(){
-    trainName = $("#trainName").val()
-    trainDest = $("#trainDest").val()
-    trainFreq = parseInt($("#trainFreq").val().trim())
-    trainArrival = parseInt($("#trainArrival").val().trim())
-    trainList = $("<div class='trainList'><p>"+trainName+"    "+trainDest+"    "+trainFreq)
-    $("#currentTrainTimes").append(trainList)
-    // console.log(trainDest)
-    // console.log(trainName)
+  $(".submitBTN").on("click", function(){
+    tName = $("#tName").val().trim()
+    console.log(tName)
+    tDestination = $("#tDestination").val().trim()
+    tFrequency = parseInt($("#tFrequency").val().trim())
+    tArrival = parseInt($("#tArrival").val().trim())
+    console.log(tDestination)
+    console.log(tName)
     //append train name to 
 
-    users.push({
-      name : trainName,
-      destination : trainDest,
-      frequency : trainFreq,
-      arrival : trainArrival
+    trains.push({
+      name : tName,
+      destination : tDestination,
+      frequency : tFrequency,
+      arrival : tArrival
     })
+    event.preventDefault()
   })
 
-  users.on('child_added', function(snap) {
+  // trains.on('child_added', function(snap) {
+  //   console.log(snap.val())
+  // })
+  
+  trains.orderByChild('number',).limitToLast(6).on('child_added', function(snap) {
     console.log(snap.val())
-  })
+    tList = $("<div class='card'><div class='card-body'><h3 class='card-title'>"+snap.val().name+"</h3><p class='card-text'>"+snap.val().destination+"</p><p class='card-text'>"+snap.val().frequency+"</p><p class='card-text'>"+snap.val().arrival+"</p><a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
 
-  users.orderByChild('number',).limitToLast(1).on('child_added', function(snap) {
-    console.log(snap.val())
+    $("#currentTrainTimes").append(tList)
+
+    
   })
   //for current trains
   //add title
