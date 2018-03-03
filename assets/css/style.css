@@ -3,6 +3,19 @@ body {
     font-family: 'Unica One', cursive;
 }
 
+.title {
+    font-family: 'Monoton', cursive;
+    background-color: #2f2e46;
+    color:white;
+    line-height: 30px;
+    margin-top: 10%;
+    margin-bottom: 0;
+}
+
+#currentTrainTimes {
+    background-color: #aeabb7;
+}
+
 #trainimage {
     height: 380px;
     width: 734px;
@@ -16,7 +29,6 @@ body {
 #topPage {
     height: 336px;
     margin-top: 5%;
-    margin-bottom: -40px;
 }
 
 #jumbo {
@@ -40,29 +52,46 @@ body {
     position: relative;
     z-index: 2;
     font-family: 'Unica One', cursive;
+    color:black;
 }
 
 .card {
     display: inline-block;
-    background-color: #9b7899;
+    background-color: #ffffffa1;
     width: 170px;
-    padding: 5px;
-    box-shadow: 3px 3px #003744;
+    padding: 6px;
+    box-shadow: 3px 3px #2f2e46;
     margin: 10px;
-    height: 220px;
+    height: 100%;
 }
+
+.card:hover {
+ background-color: #af8aa4;
+ color:white;
+}
+
 
 .card h3 {
     font-family: 'Fjalla One', sans-serif;
-    color: white;
+    color: black;
 }
 
 .card a {
     text-decoration: none;
-    color: rgb(31, 31, 56);
+    color: #2f2e46;
+    font-weight: bold;
 }
 
 #time {
     position: relative;
     z-index: 3;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.form {
+    text-align: left;
+}
+
+.form-control {
+    margin: 2px;
 }

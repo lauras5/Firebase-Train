@@ -16,13 +16,15 @@
                 <div class="jumbotron" id='jumbo'>
                     <h1>In Transit</h1>
                     <p> trains . fast . easy . accurate </p>
+                    <h2 id='day'></h2>
                     <h2 id='time'></h2>
+                    <button id="timeBtn">update time</button>
                 </div>
                 <img id='trainimage' src="assets/images/train.png" alt="train">
             </div>
         </div>
         <div class="row">
-            <span><h2>Current Train Times</h2></span>
+            <span><h2 class='title'>Trains</h2></span>
             <div class="col-md" id="currentTrainTimes">
             </div>
         </div>
@@ -30,14 +32,21 @@
         <div class="row">
             <div class="col-md-6">
             <div class="form">
-                <div class="form-group"><h2>  Add Train</h2>
+                <div class="form-group"><h2 class='title'>  Add Train</h2>
+                    <h4>Train Name: </h4>
                     <input id='tName' class="form-control form-control-lg" type="text" placeholder="Name">
+                    <h4>Destination: </h4>
                     <input id='tDestination' class="form-control form-control-lg" type="text" placeholder="Destination">
+                    <h4>Frequency (minutes): </h4>
                     <input id='tFrequency' class="form-control form-control-lg" type="number" placeholder="Frequency">
+                    <h4>First Arrival (HH:MM pm/am): </h4>
                     <input id='tArrival' class="form-control form-control-lg" type="time" placeholder="First Arrival">
                     <button type='submit' class="submitBTN">SUBMIT</button>
                 </div>
             </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class='title'>My Ride</h2>
             </div>
         </div>
     </div>
