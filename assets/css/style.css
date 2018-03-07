@@ -64,7 +64,7 @@ h4 {
 .card {
     display: inline-block;
     background-color: #d3e1ca;
-    width: 210px;
+    width: 225px;
     padding: 6px;
     box-shadow: 5px 5px #5c5d6d;
     margin: 10px;
@@ -74,20 +74,23 @@ h4 {
 .card:hover {
     background-color: #76acac;
     box-shadow: 8px 8px grey;
-    color: white;
 }
 
 
 .card h3 {
     font-family: 'Fjalla One', sans-serif;
     color: #5c5d6d;
+    font-size: 30px;
     
 }
 
 .card a {
     text-decoration: none;
-    color: #2f2e46;
+    color: #3183ab;
     font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    padding: 5px;
 }
 
 .card a:hover {
@@ -109,4 +112,9 @@ h4 {
     width: 80%;
     color: rgb(97, 96, 96);
     background-color: #eee;
+}
+#spec {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
 }

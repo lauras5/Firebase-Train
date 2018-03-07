@@ -63,23 +63,23 @@ $(document).ready(function() {
     event.preventDefault()
   })
   
-    trains.orderByChild('number',).limitToLast(12).on('child_added', function(snap) {
+    trains.orderByChild('number',).limitToLast(10).on('child_added', function(snap) {
       console.log(snap.val())
       var t = snap.val()
       tArrival = t.arrival
-      firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
+      firstTimeConverted = moment(tArrival,"hh:mmA").subtract(1, "day")
       diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
       tFrequency = t.frequency
       tRemainder = diffTime % tFrequency
       tName = t.name
       tDestination = t.destination
       minutesToTrain = tFrequency - tRemainder
-      nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
+      nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mmA')
       console.log(tFrequency)
       console.log(tRemainder)
 
       //can split up but there is no need
-      tList = $("<div class='card'><div class='card-body'><h3 class='card-title' id='card-name'>" + tName + "</h3><p class='card-text' id='card-destination'>Destination: " + tDestination + "</p><p class='card-text' id='card-frequency'>Frequency: " + tFrequency + "</p><p class='card-text' id='card-next-arrival'>Next Arrival: " + nextTrain + "</p><p class='card-text' id='card-minutes'>Minutes Until Train Arrives: " + minutesToTrain + "</p><a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
+      tList = $("<div class='card'><div class='card-body'><h3 class='card-title' id='card-name'>" + tName + "</h3><p class='card-text' id='card-destination'>Destination:</p> <p id='spec'>" + tDestination + "</p> <p class='card-text' id='card-frequency'>Frequency:</p> <p id='spec'>Every " + tFrequency + " min.</p> <p class='card-text' id='card-next-arrival'>Next Arrival:</p> <p id='spec'>" + nextTrain + "</p> <p class='card-text' id='card-minutes'>Next train arrives in:</p> <p id='spec'>" + minutesToTrain + " min.</p> <a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
 
       $("#currentTrainTimes").append(tList)  
     })
