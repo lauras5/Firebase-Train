@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  var newTrain
   var tName
   var tDestination
   var tFrequency
@@ -7,6 +6,10 @@ $(document).ready(function() {
   var nextArrival //next time tArrival + Frequency that hasnt passed yet
   var minutesToTrain//diff in minutes between now and nextArrival
   var tList
+  var diffTime
+  var tRemainder
+  var nextTrain
+
   //don't need date, there for aesthetics
   var date = moment().format('MMMM Do YYYY');
   $("#day").html(date)
@@ -39,23 +42,27 @@ $(document).ready(function() {
     tFrequency = parseInt($("#tFrequency").val().trim())
     tArrival = $("#tArrival").val().trim()
     console.log(tArrival)
-    var firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "years")
-    console.log(firstTimeConverted)
-    console.log(now)
-        nextArrival = '05:30' //every 15 minutes starting with tArrival,
 
-    console.log(tFrequency)
-    minutesToTrain = moment(now).to(nextArrival)
+     //every 15 minutes starting with tArrival,
+    var firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
+    // console.log(firstTimeConverted)
+    // now = moment().format('LT')
+    diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
+    tRemainder = diffTime % tFrequency
+    minutesToTrain = tFrequency - tRemainder
     console.log(minutesToTrain)
-    // console.log(tDestination)
-    // console.log(tName)
-    //append train name to 
+    nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
+    console.log(nextTrain)
+    // nextArrival = nextTrain._d.format('hh:mm')
+    // console.log(nextTrain._d)
     
     trains.push({
       name : tName,
       destination : tDestination,
       frequency : tFrequency,
       arrival : tArrival,
+      minutes : minutesToTrain,
+      nextTrain : nextTrain
     })
     event.preventDefault()
   })
@@ -63,9 +70,23 @@ $(document).ready(function() {
     trains.orderByChild('number',).limitToLast(12).on('child_added', function(snap) {
       console.log(snap.val())
       var t = snap.val()
-      
+      tArrival = t.arrival
+      firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
+      // console.log(firstTimeConverted)
+      // now = moment().format('LT')
+      diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
+      tFrequency = t.frequency
+      tRemainder = diffTime % tFrequency
+      tName = t.name
+      tDestination = t.destination
+      nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
+      console.log(tFrequency)
+      console.log(tRemainder)
+      minutesToTrain = tFrequency - tRemainder
+
       //can split up but there is no need
-      tList = $("<div class='card'><div class='card-body'><h3 class='card-title' id='card-name'>"+t.name+"</h3><p class='card-text' id='card-destination'>"+t.destination+"</p><p class='card-text' id='card-frequency'>"+t.frequency+"</p><p class='card-text' id='card-next-arrival'>"+t.Arrival+"</p><p class='card-text' id='card-minutes'>"+minutesToTrain+"</p><a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
+      tList = $("<div class='card'><div class='card-body'><h3 class='card-title' id='card-name'>" + tName + "</h3><p class='card-text' id='card-destination'>Destination: " + tDestination + "</p><p class='card-text' id='card-frequency'>Frequency: " + tFrequency + "</p><p class='card-text' id='card-next-arrival'>Next Arrival: " + nextTrain + "</p><p class='card-text' id='card-minutes'>Minutes Until Train Arrives: " + minutesToTrain + "</p><a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
+
       $("#currentTrainTimes").append(tList)  
     })
     //   console.log(snap.val())

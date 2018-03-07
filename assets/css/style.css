@@ -4,24 +4,22 @@ body {
 }
 
 .title {
-    font-family: 'Monoton', cursive;
-    background-color: #2f2e46;
-    color:white;
-    line-height: 30px;
-    margin-top: 10%;
+    font-family: 'Limelight', cursive;
+    background-color: #013c5e;
+    color: white;
+    line-height: 61px;
+    margin-top: 8%;
     margin-bottom: 0;
+    font-size: 40px;
+    text-align: center
 }
 
-#currentTrainTimes {
-    background-color: #aeabb7;
-}
 
 #trainimage {
-    height: 380px;
-    width: 734px;
+    height: 389px;
     position: relative;
-    top: -377px;
-    left: -286px;
+    top: -410px;
+    left: -320px;
     margin: 0px;
     z-index: 0;
 }
@@ -44,7 +42,7 @@ body {
 .jumbotron h1 {
     position: relative;
     z-index: 1;
-    font-family: 'Monoton', cursive;
+    font-family: 'Limelight', cursive;
     font-size: 75px;
 }
 
@@ -57,29 +55,35 @@ body {
 
 .card {
     display: inline-block;
-    background-color: #ffffffa1;
-    width: 170px;
+    background-color: #b5dce4;
+    width: 210px;
     padding: 6px;
-    box-shadow: 3px 3px #2f2e46;
+    box-shadow: 5px 5px #1d7284;
     margin: 10px;
     height: 100%;
 }
 
 .card:hover {
- background-color: #af8aa4;
- color:white;
+    background-color: #013c5e;
+    box-shadow: 8px 8px grey;
+    color: white;
 }
 
 
 .card h3 {
     font-family: 'Fjalla One', sans-serif;
     color: black;
+    
 }
 
 .card a {
     text-decoration: none;
     color: #2f2e46;
     font-weight: bold;
+}
+
+.card a:hover {
+    color: white;
 }
 
 #time {
