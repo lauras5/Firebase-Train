@@ -44,13 +44,13 @@ $(document).ready(function() {
     console.log(tArrival)
 
      //every 15 minutes starting with tArrival,
-    var firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
+    var firstTimeConverted = moment(tArrival,"hh:mmA").subtract(1, "day")
     // console.log(firstTimeConverted)
     diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
     tRemainder = diffTime % tFrequency
     minutesToTrain = tFrequency - tRemainder
     console.log(minutesToTrain)
-    nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
+    nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mmA')
     console.log(nextTrain)
     // console.log(nextTrain._d)
     
