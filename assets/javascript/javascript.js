@@ -32,9 +32,9 @@ $(document).ready(function() {
   
   //access to database
   var database =  firebase.database()
-  //acces to trains
+  //access to trains
   var trains = database.ref('/trains')
-  console.log('hello')
+  // console.log('hello')
   
   $(".submitBTN").on("click", function(){
     tName = $("#tName").val().trim()
@@ -46,14 +46,12 @@ $(document).ready(function() {
      //every 15 minutes starting with tArrival,
     var firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
     // console.log(firstTimeConverted)
-    // now = moment().format('LT')
     diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
     tRemainder = diffTime % tFrequency
     minutesToTrain = tFrequency - tRemainder
     console.log(minutesToTrain)
     nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
     console.log(nextTrain)
-    // nextArrival = nextTrain._d.format('hh:mm')
     // console.log(nextTrain._d)
     
     trains.push({
@@ -70,8 +68,6 @@ $(document).ready(function() {
       var t = snap.val()
       tArrival = t.arrival
       firstTimeConverted = moment(tArrival,"hh:mm").subtract(1, "day")
-      // console.log(firstTimeConverted)
-      // now = moment().format('LT')
       diffTime = moment().diff(moment(firstTimeConverted), 'minutes')
       tFrequency = t.frequency
       tRemainder = diffTime % tFrequency
@@ -89,13 +85,13 @@ $(document).ready(function() {
     })
     //   console.log(snap.val())
     
-    $('#timeBtn').on("click", function() {
-      now = moment().format('LT')
-      $("#time").html(now)
-      console.log(now)
-      //update train info
-    })
-    //for current trains
+    // $('#timeBtn').on("click", function() {
+    //   now = moment().format('LT')
+    //   $("#time").html(now)
+    //   console.log(now)
+    //   //update train info
+    // })
+    // //for current trains
   //add title
   //append list array for trains
   //list contains train name, destination, frequency, next arrival & minutes away
