@@ -61,8 +61,6 @@ $(document).ready(function() {
       destination : tDestination,
       frequency : tFrequency,
       arrival : tArrival,
-      minutes : minutesToTrain,
-      nextTrain : nextTrain
     })
     event.preventDefault()
   })
@@ -79,10 +77,10 @@ $(document).ready(function() {
       tRemainder = diffTime % tFrequency
       tName = t.name
       tDestination = t.destination
+      minutesToTrain = tFrequency - tRemainder
       nextTrain = moment().add(minutesToTrain, 'minutes').format('hh:mm')
       console.log(tFrequency)
       console.log(tRemainder)
-      minutesToTrain = tFrequency - tRemainder
 
       //can split up but there is no need
       tList = $("<div class='card'><div class='card-body'><h3 class='card-title' id='card-name'>" + tName + "</h3><p class='card-text' id='card-destination'>Destination: " + tDestination + "</p><p class='card-text' id='card-frequency'>Frequency: " + tFrequency + "</p><p class='card-text' id='card-next-arrival'>Next Arrival: " + nextTrain + "</p><p class='card-text' id='card-minutes'>Minutes Until Train Arrives: " + minutesToTrain + "</p><a href='https://www.amtrak.com/home.html' class='card-link'>Buy A Ticket</a></div></div>")
