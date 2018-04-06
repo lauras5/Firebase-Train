@@ -24,7 +24,7 @@ $(document).ready(function() {
     authDomain: "trains-55.firebaseapp.com",
     databaseURL: "https://trains-55.firebaseio.com",
     projectId: "trains-55",
-    storageBucket: "",
+    storageBucket: "trains-55.appspot.com",
     messagingSenderId: "908445882136"
   };
   
@@ -36,7 +36,7 @@ $(document).ready(function() {
   var trains = database.ref('/trains')
   // console.log('hello')
   
-  $(".submitBTN").on("click", function(){
+  $("#submitBTN").on("click", function(){
     tName = $("#tName").val().trim()
     tDestination = $("#tDestination").val().trim()
     tFrequency = parseInt($("#tFrequency").val().trim())
