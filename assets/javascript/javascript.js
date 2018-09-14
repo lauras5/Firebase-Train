@@ -12,13 +12,14 @@ $(document).ready(function () {
   const date = moment().format('MMMM Do YYYY');
   $("#day").html(date)
   //adding time to page
+  // set interval
   const now = moment().format('LT')
   $("#time").html(now)
 
 
   // Initialize Firebase
   const config = {
-    apiKey: "AIzaSyDMzQJYRc3YYs8XXXzcff-8DVu8XKUpvl8",
+    apiKey: myKey,
     authDomain: "trains-55.firebaseapp.com",
     databaseURL: "https://trains-55.firebaseio.com",
     projectId: "trains-55",
